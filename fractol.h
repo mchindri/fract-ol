@@ -6,7 +6,7 @@
 /*   By: mchindri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/05 14:48:38 by mchindri          #+#    #+#             */
-/*   Updated: 2016/03/05 15:29:15 by mchindri         ###   ########.fr       */
+/*   Updated: 2016/03/05 16:14:19 by mchindri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@
 
 # define WIN_LEN 500
 # define WIN_WID 700
-# define MAX_ITER 10
+# define MAX_ITER 90
+# define DIF 100
 # define RADIOUS 100
 # define SHADOW 0
 
