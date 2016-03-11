@@ -6,7 +6,7 @@
 /*   By: mchindri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/05 14:48:38 by mchindri          #+#    #+#             */
-/*   Updated: 2016/03/05 16:14:19 by mchindri         ###   ########.fr       */
+/*   Updated: 2016/03/11 09:51:00 by mchindri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@
 
 # define WIN_LEN 500
 # define WIN_WID 700
-# define MAX_ITER 90
+# define MAX_ITER 100
 # define DIF 100
-# define RADIOUS 100
+# define RADIOUS 2 
 # define SHADOW 0
 
 typedef struct	s_mlx
@@ -45,12 +45,25 @@ typedef struct	s_point
 	int y;
 }				t_point;
 
-typedef struct	s_s
+typedef struct	s_data
 {
-	int a;
-}				t_s;
+	enum
+	{
+		MANDLEBORT,
+		JULIA,
+		TYPE
+	}		e_type;
+	float	x_unit;
+	float	y_unit;
+	float	x_step;
+	float	y_step;
+	float	zoom;
+	float complex start;
+	t_point	center;
 
-void	ft_draw_mandlebort(t_mlx ptr);
+}				t_data;
+
+void	ft_draw_mandlebort(t_mlx ptr, t_data *data);
 int		mlx_pixel_put_to_image(void *img, int x, int y, int clr);
 int		ft_set_color(unsigned char red, unsigned char gren, unsigned char blue);
 

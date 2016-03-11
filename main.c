@@ -6,7 +6,7 @@
 /*   By: mchindri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 12:53:54 by mchindri          #+#    #+#             */
-/*   Updated: 2016/03/05 14:55:44 by mchindri         ###   ########.fr       */
+/*   Updated: 2016/03/11 09:45:53 by mchindri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_usage()
 
 int		main(int argc, char **argv)
 {
-	t_s		e;
+	t_data	data;
 	t_mlx	ptr;
 	char	fr;
 
@@ -60,8 +60,8 @@ int		main(int argc, char **argv)
 	ptr.mlx = mlx_init();
 	ptr.win = mlx_new_window(ptr.mlx, WIN_WID, WIN_LEN, "fractol");
 	if (fr == 'm')
-		ft_draw_mandlebort(ptr);
-	mlx_key_hook(ptr.win, ft_key_hook, &e);
+		ft_draw_mandlebort(ptr, &data);
+	mlx_key_hook(ptr.win, ft_key_hook, &data);
 	mlx_loop(ptr.mlx);
 	return (0);
 }
