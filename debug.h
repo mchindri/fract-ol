@@ -6,7 +6,7 @@
 /*   By: mchindri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/23 14:37:02 by mchindri          #+#    #+#             */
-/*   Updated: 2016/02/01 16:38:46 by mchindri         ###   ########.fr       */
+/*   Updated: 2016/03/12 15:50:02 by mchindri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 				ft_putchar('\n');}
 #define STR(x) ft_putstr(x);
 #define STRN(x) ft_putendl(x);
+#define FNB(x) dprintf(2,#x "=%f\n",x);
 
 
 #endif

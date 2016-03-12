@@ -6,7 +6,7 @@
 /*   By: mchindri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/05 14:25:44 by mchindri          #+#    #+#             */
-/*   Updated: 2016/03/12 17:15:56 by mchindri         ###   ########.fr       */
+/*   Updated: 2016/03/12 18:54:26 by mchindri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,23 +33,40 @@ void	ft_preset_mandlebort(t_data *data)
 {
 	data->color = 0;
 	ft_preset_paletes(data->palete);
-	data->step.x = 3.0 / WIN_WID;
+	data->step.x = 4.0 / WIN_WID;
 	data->step.y = 2.0 / WIN_LEN;
-	data->center.x = (WIN_WID / 3) * 2;
+	data->center.x = (WIN_WID / 2);
 	data->center.y = (WIN_LEN / 2);
 	data->start.x = (-1) * data->center.x * data->step.x;
 	data->start.y = (-1) * data->center.y * data->step.y;
+	data->j.x = 0;
+	data->j.y = 0;
 }
 
-int		ft_iterate(float x0, float y0)
+void	revert(float *a, float *x, float *b, float *y)
+{
+	float aux;
+
+	aux = *a;
+	*a = *b;
+	*b = aux;
+	aux =*x;
+	*x  = *y;
+	*y = aux;
+}
+
+int		ft_iterate(float x, float y, t_data *data)
 {
 	int		iter;
-	float	x;
-	float	y;
+	float	x0;
+	float	y0;
 	float	temp;
 
-	x = 0.0;
-	y = 0.0;
+	x0 = data->j.x;
+	y0 = data->j.y;
+	//revert(&x, &y, &x0, &y0);
+	//x0 = data->j.x;
+	//y0 = data->j.y;
 	iter = 0;
 	while (x * x + y * y < RADIOUS * RADIOUS  &&  iter < MAX_ITER)
 	{
@@ -77,8 +94,8 @@ void	ft_draw_mandlebort(t_data *data)
 		count.y = 0;
 		y = data->start.y;
 		while (count.y < WIN_LEN)
-		{
-			iter = ft_iterate(x, y);
+	{
+			iter = ft_iterate(x, y, data);
 			color = ft_chose_color(iter, data);
 			mlx_pixel_put_to_image(data->ptr.img, count.x, count.y, color);
 			count.y++;
