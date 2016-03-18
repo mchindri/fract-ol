@@ -6,11 +6,11 @@
 #    By: mchindri <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/07 12:55:24 by mchindri          #+#    #+#              #
-#    Updated: 2016/03/12 17:46:43 by mchindri         ###   ########.fr        #
+#    Updated: 2016/03/18 10:43:18 by mchindri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.c ft_draw_julia.c mlx_put_pixel_to_image.c ft_colors.c 
+SRC = main.c ft_expose.c mlx_put_pixel_to_image.c ft_colors.c 
 OFILES = $(SRC:.c=.o)
 
 
@@ -49,5 +49,5 @@ all: mlx lib $(NAME)
 re: clean $(NAME)
 
 test: re
-	./$(NAME) mandlebort
+	./test.sh $(NAME)
 

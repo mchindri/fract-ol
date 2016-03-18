@@ -6,7 +6,7 @@
 /*   By: mchindri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/12 13:23:23 by mchindri          #+#    #+#             */
-/*   Updated: 2016/03/12 13:53:51 by mchindri         ###   ########.fr       */
+/*   Updated: 2016/03/18 10:03:03 by mchindri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_chose_color(int iter, t_data *data)
 {
 
 	if (iter == MAX_ITER)
-		return (ft_set_color(0, 0, 0));
+		return (0);
 	else 
 		return (data->palete[data->color % 3][iter % 8]);
 }
