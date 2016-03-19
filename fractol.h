@@ -6,7 +6,7 @@
 /*   By: mchindri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/05 14:48:38 by mchindri          #+#    #+#             */
-/*   Updated: 2016/03/18 11:06:23 by mchindri         ###   ########.fr       */
+/*   Updated: 2016/03/19 11:52:57 by mchindri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@
 
 # define MOTIONMASK (1L<<6)
 # define MOTIONNOTIFY 6
-
-//
-	#include "debug.h"
-//
 
 # define WIN_LEN 600
 # define WIN_WID 800
@@ -44,8 +40,8 @@ typedef struct	s_point
 
 typedef struct	s_fpoint
 {
-	float	x;
-	float	y;
+	double	x;
+	double	y;
 }				t_fpoint;
 
 typedef struct	s_data
@@ -54,7 +50,8 @@ typedef struct	s_data
 	{
 		MANDLEBORT,
 		JULIA,
-		TYPE
+		MANDLEBORT2,
+		JULIA2
 	}			type;
 	t_fpoint	step;
 	t_fpoint	start;
@@ -65,13 +62,13 @@ typedef struct	s_data
 	int			palete[3][8];
 }				t_data;
 
-int		ft_chose_color(int iter, t_data *data);
-void	ft_preset_paletes(int palete[][8]);
+int				ft_chose_color(int iter, t_data *data);
+void			ft_preset_paletes(int palete[][8]);
 
-int		mlx_pixel_put_to_image(void *img, int x, int y, int clr);
+int				mlx_pixel_put_to_image(void *img, int x, int y, int clr);
 
-void	ft_rezoom(int x, int y, t_data *data, char type);
-void	ft_expose(t_data *data);
-void	ft_preset_data(t_data *data);
+void			ft_rezoom(int x, int y, t_data *data, char type);
+void			ft_expose(t_data *data);
+void			ft_preset_data(t_data *data);
 
 #endif

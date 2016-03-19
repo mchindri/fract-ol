@@ -6,7 +6,7 @@
 /*   By: mchindri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 12:53:54 by mchindri          #+#    #+#             */
-/*   Updated: 2016/03/18 11:08:01 by mchindri         ###   ########.fr       */
+/*   Updated: 2016/03/19 11:53:12 by mchindri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int		ft_mouse_hook(int button, int x, int y, t_data *data)
 		ft_rezoom(x, y, data, '+');
 		ft_expose(data);
 	}
-	else if (button == 5 && data->step.x < 3.0 / WIN_WID)
-	{	
+	else if (button == 5)
+	{
 		ft_rezoom(x, y, data, '-');
 		ft_expose(data);
 	}
@@ -30,7 +30,7 @@ int		ft_mouse_hook(int button, int x, int y, t_data *data)
 int		ft_key_hook(int key, t_data *data)
 {
 	if (key == 53)
-			exit(0);
+		exit(0);
 	else if (key == 8)
 	{
 		data->color++;
@@ -53,17 +53,17 @@ int		ft_key_hook(int key, t_data *data)
 
 int		ft_expose_hook(int x, int y, t_data *data)
 {
-	t_fpoint	man_point;
-
 	data->c_julia.x = (x - data->center.x) * data->step.x;
 	data->c_julia.y = (y - data->center.y) * data->step.y;
 	ft_expose(data);
 	return (0);
 }
 
-void	ft_usage()
+void	ft_usage(void)
 {
-	ft_putstr("Usage:\n./fractol mandlebort\n./fractol julia\n./fractol da");
+	ft_putstr("Usage:\n");
+	ft_putstr("./fractol mandlebort\n./fractol mandlebort2\n");
+	ft_putstr("./fractol julia\n./fractol julia2\n");
 	exit(1);
 }
 
@@ -73,13 +73,14 @@ int		main(int argc, char **argv)
 
 	if (argc != 2)
 		ft_usage();
-
 	if (ft_strcmp(argv[1], "mandlebort") == 0)
 		data.type = MANDLEBORT;
 	else if (ft_strcmp(argv[1], "julia") == 0)
 		data.type = JULIA;
-	else if (ft_strcmp(argv[1], "da") == 0)
-		data.type = TYPE;
+	else if (ft_strcmp(argv[1], "mandlebort2") == 0)
+		data.type = MANDLEBORT2;
+	else if (ft_strcmp(argv[1], "julia2") == 0)
+		data.type = JULIA2;
 	else
 		ft_usage();
 	data.ptr.mlx = mlx_init();

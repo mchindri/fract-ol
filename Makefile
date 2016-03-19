@@ -6,7 +6,7 @@
 #    By: mchindri <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/07 12:55:24 by mchindri          #+#    #+#              #
-#    Updated: 2016/03/18 10:43:18 by mchindri         ###   ########.fr        #
+#    Updated: 2016/03/18 11:09:46 by mchindri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ SRC = main.c ft_expose.c mlx_put_pixel_to_image.c ft_colors.c
 OFILES = $(SRC:.c=.o)
 
 
-FLAGS = 
+FLAG = 
 
-FLAG = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 MAIN = main.c
 NAME = fractol
 INCLUDES = -I . -I libft/includes
